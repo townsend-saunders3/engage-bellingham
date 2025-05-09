@@ -58,6 +58,11 @@ Instead of surfacing the loudest or most recent voices, we highlight the most **
 You can also explore a short story that explains what the whole community said overall.
 """)
 
+
+# --- Narrative Explorer ---
+st.markdown("---")
+st.markdown(final_narrative)
+
 # --- Word Cloud ---
 st.markdown("### ☁️ Most Common Words")
 top_text = " ".join(df.sort_values("normalized_score", ascending=False).head(50)["text"])
@@ -92,9 +97,6 @@ for idx, row in ranked_df.iterrows():
         st.markdown(f"**What they said:**\n\n{row['text']}")
         st.markdown(f"**See more:** [Original comment]({row['meta']['source_url']})")
 
-# --- Narrative Explorer ---
-st.markdown("---")
-st.markdown(final_narrative)
 
 # --- Footer ---
 st.markdown("---")
