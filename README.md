@@ -2,6 +2,8 @@
 
 This project analyzes public feedback from the City of Bellingham’s civic engagement platform, [Engage Bellingham](https://engagebellingham.org). It scrapes, processes, and visually presents community sentiment to highlight the most representative comments and common themes.
 
+You can view the [Live Version](https://engage-bellingham.streamlit.app) here.
+
 ## 🌟 Features
 
 * **Web Scraping:** Automatically collects guestbook comments, Q\&A submissions, and related documents from city forums.
