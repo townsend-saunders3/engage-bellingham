@@ -1,0 +1,28 @@
+name: Daily Empty Commit
+
+on:
+  schedule:
+    - cron: '0 */10 * * *'  # Runs every 10 hours
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write  # Ensures GITHUB_TOKEN has push access
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create empty commit
+        run: git commit --allow-empty -m "Some minor changes"
+
+      - name: Push commit
+        run: git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/townsend-saunders3/engage-bellingham.git main
